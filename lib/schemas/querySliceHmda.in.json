@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "slice": {
+            "required": true,
+            "type": "string"
+        },
+        "_select": {
+            "required": false,
+            "type": "string"
+        },
+        "_where": {
+            "required": false,
+            "type": "string"
+        },
+        "_group": {
+            "required": false,
+            "type": "string"
+        },
+        "_limit": {
+            "required": false,
+            "type": "integer"
+        },
+        "_offset": {
+            "required": false,
+            "type": "integer"
+        },
+        "_orderBy": {
+            "required": false,
+            "type": "string"
+        },
+        "_callback": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,130 @@
+{
+    "title": "The Consumer Financial Protection Bureau",
+    "description": "Learn more about home mortgage data, download the data yourself, or build new tools using our API.",
+    "docsUrl": "http://cfpb.github.io/api/hmda/",
+    "url": "https://api.apis.guru/v2/specs/consumerfinance.gov/1.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.consumerfinance.gov:443/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "getDatasets": {
+            "main": "./lib/actions/getDatasets.js",
+            "title": "Get a list of all datasets.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDatasets.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDatasetHmda": {
+            "main": "./lib/actions/getDatasetHmda.js",
+            "title": "Get metadata for this dataset.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDatasetHmda.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getConceptHmda": {
+            "main": "./lib/actions/getConceptHmda.js",
+            "title": "Get information about a particular concept in this dataset.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getConceptHmda.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "querySliceHmda": {
+            "main": "./lib/actions/querySliceHmda.js",
+            "title": "Query a slice in this dataset.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/querySliceHmda.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getSliceMetadataHmda": {
+            "main": "./lib/actions/getSliceMetadataHmda.js",
+            "title": "Get the metadata for a slice in this dataset.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getSliceMetadataHmda.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getDataset": {
+            "main": "./lib/actions/getDataset.js",
+            "title": "Get metadata about a dataset.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getDataset.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

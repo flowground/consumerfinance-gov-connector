@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "slice": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
